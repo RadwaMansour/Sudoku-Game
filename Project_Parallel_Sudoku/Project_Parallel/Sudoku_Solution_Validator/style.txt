@@ -1,0 +1,38 @@
+ private void errors(){
+        board= getArray();
+        Check check1= new Check();
+        boolean [][] board2;
+        try {
+            board2 = check1.check(board);
+            for (int row = 0; row < SIZE; row++) {
+                for (int column = 0; column < SIZE; column++) {
+                    if (!textfiels[row][column].isDisabled()){
+                        textfiels[row][column].setText("").;
+                    }}}
+        }
+        catch (InterruptedException e){}
+    }
+
+
+    public void generate(){
+            generate g = new generate();
+            int max=8;
+            int min=0;
+            int times = (int)Math.floor(Math.random()*(5)+4);
+            for(int i=0;i<times;i++){
+                board= getArray();
+                try {
+                    int row = (int)Math.floor(Math.random()*(max-min+1)+min);
+                    int column = (int)Math.floor(Math.random()*(max-min+1)+min);
+                    System.out.println(times);
+                    int x = g.newNum(board,row,column);
+                    if(x==0)
+                        continue;
+                    else{
+                        textfiels[row][column].setText(String.valueOf(x));
+                    }
+                }
+                catch (InterruptedException e){
+                    throw new RuntimeException(e);
+                }
+        }}
